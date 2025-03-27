@@ -12,7 +12,7 @@ elasticnet_regressor = pickle.load(open("models/elasticnet.pkl", "rb"))
 scaler = pickle.load(open("models/scaler.pkl", "rb"))
 
 @app.route("/")
-def supdawg():
+def home():
     return render_template("index.html")
 
 @app.route("/predictfires", methods=["GET", "POST"])
