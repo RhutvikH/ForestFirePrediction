@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Fire Prediction</title>
+</head>
+<body>
+    <h1>Enter values to predict FWI</h1>
+    <form action="{{ url_for('make_prediction')}}" method="POST">
+        <input type="text" placeholder="Temperature" name="Temperature" id="temp" required="required"><br>
+        <input type="text" placeholder="RH" name="RH" id="rh" required="required"><br>
+        <input type="text" placeholder="Ws" name="Ws" id="ws" required="required"><br>
+        <input type="text" placeholder="Rain" name="Rain" id="rain" required="required"><br>
+        <input type="text" placeholder="FFMC" name="FFMC" id="ffmc" required="required"><br>
+        <input type="text" placeholder="DMC" name="DMC" id="dmc" required="required"><br>
+        <input type="text" placeholder="ISI" name="ISI" id="isi" required="required"><br>
+        <input type="text" placeholder="Classes" name="Classes" id="classes" required="required"><br>
+        <input type="text" placeholder="Region" name="Region" id="region" required="required"><br>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        <h1>The predicted FWI is: {{result}}</h1>
+    </form>
+</body>
+</html>
