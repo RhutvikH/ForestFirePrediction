@@ -13,10 +13,21 @@ scaler = pickle.load(open("models/scaler.pkl", "rb"))
 
 @app.route("/")
 def home():
+    """Homepage
+
+    Returns:
+        render_template: Returns index.html
+    """
+
     return render_template("index.html")
 
 @app.route("/predictfires", methods=["GET", "POST"])
 def make_prediction():
+    """Prediction page
+
+    Returns:
+        render_template: Shows predictions if user inputs valid values
+    """
 
     if request.method == "POST":
         temperature: float = float(request.form.get('Temperature'))
@@ -37,8 +48,8 @@ def make_prediction():
 
         return render_template("predict-fires.html", result = np.maximum(result[0], 0))
 
-    else:
-        return render_template("predict-fires.html")
+    return render_template("predict-fires.html")
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
